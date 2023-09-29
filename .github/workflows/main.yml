@@ -68,6 +68,5 @@ jobs:
           username: ${{ secrets.REMOTE_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            docker stop $(docker ps -a -q)
             docker pull ${{ secrets.DOCKER_HUB_REPO }}
             docker run --rm -d -p 80:3000 ${{ secrets.DOCKER_HUB_REPO }}:latest --name app
